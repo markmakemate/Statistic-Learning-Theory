@@ -1,7 +1,7 @@
 # Statistic-Learning-Theory
-## This project is the code implement of AI algorithms:
+## This project is the code implement of AI algorithms
 
-# Introduction of the project:
+# Introduction of the project
 
 ## 1. kNN Algorithm
 * kd Tree
