@@ -23,3 +23,7 @@
 * Prunning:
  Postorder Traversal to calculate Gini and loss function for every node;
  Postorder Traversal searching and prunning;
+## 3. Max Entropy and Logestic Regression
+* IIS Algorithm
+* BFGS Algorithm
+* DFP Algorithm
