@@ -6,6 +6,7 @@
 ## 1. kNN Algorithm
 * kd Tree
 * Stroage Model: template<class Elemtype> struct TreeNode{}
+ 
 ## 2. Decision Tree
 * Storage Model: map<string,double>* as Table
 * Store subspace: map<vector<double>,Table*>
@@ -22,8 +23,17 @@
  Complexity of calculating Complexity of Gini: O(kN), k is the dimension
 * Prunning:
  Postorder Traversal to calculate Gini and loss function for every node;
- Postorder Traversal searching and prunning;
+ leaf nodes will be stored in a queue;
+ Postorder Traversal searching and prunning from leaf nodes;
+ * CART Algorithm Complexity: O(kN+logN) for big data: O(N+logN);
+ 
 ## 3. Max Entropy and Logestic Regression
 * IIS Algorithm
 * BFGS Algorithm
 * DFP Algorithm
+
+## 4. SVM Algorithm
+* SMO Algorithm
+* Using Generic Algorithm for SVM
+* Using Particle Swarm Optimization for SVM
+* Using Simulated Annealing Algorithm for SVM
