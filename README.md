@@ -37,3 +37,27 @@
 * Using Generic Algorithm for SVM
 * Using Particle Swarm Optimization for SVM
 * Using Simulated Annealing Algorithm for SVM
+
+## 5. AdaBoost
+* Boosting Tree
+
+## 6. Random Forest
+* N CART Trees
+
+## 7.EM Algorithm
+* GMM(Gaussian Mixture Model)
+* GEM(Generalized EM Algorithm)
+
+## 8. HMM(Hidden Markov Model)
+* Propability Calculation Algorithm(forward+backward)
+* Learning Algorithm(Baum-Welch)
+* Forecasting Algorithm(Approximation Algorithm, Viterbi Algorithm)
+
+## 9. CRF(Conditional Random Field)
+* Probability Calculation Algorithm(forward+backward)
+* Learning Algorithm(IIS+BFGS)
+* Forecasting Algorithm(Viterbi Algorithm)
+
+# Introduction to ML Algorithms
+## Chapter 1 kNN
+### 1. Basic Theory
