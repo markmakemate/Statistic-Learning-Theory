@@ -2,33 +2,34 @@
 #include<cstdlib>
 #include<queue>
 #include<cmath>
-#include"Eigen/Eigen/Dense"
+#include<vector>
 //This is the code implements of kd tree
-//kd tree is applied to search k-nearest neighbor points in an effective way
-using namespace Eigen;
+//kd tree is applied to search k-nearest neighbor points in an efficient way
 using namespace std;
 template<class Elemtype>
 struct BSTreeNode {
 	Elemtype data;
-	BSTreeNode* left;
-	BSTreeNode* right;
-	BSTreeNode(Elemtype x) :data(x), left(NULL), right(NULL) {}
+	BSTreeNode<Elemtype>* left;
+	BSTreeNode<Elemtype>* right;
+	BSTreeNode<Elemtype>* father;
+	int depth;
+	BSTreeNode(Elemtype x,int d) :data(x), depth(d),left(NULL), right(NULL){}
 };   //Declaration  of Binary search tree node
 
 class kd_Tree {
-	typedef BSTreeNode<VectorXd>* node;
+	typedef BSTreeNode<vector<double> >* node;
 private:
 	int Num_of_Samples;
 	int Dimension;
 public:
 	kd_Tree();
 	kd_Tree(int N, int k);
-	node Build_kd_Tree(node __Tree__,MatrixXd __TrainingDataSet__,int end,int begin=0,int depth=1);
-	queue<VectorXd> KNN_Searching(VectorXd __ObjectivePoint__, node __kdTree__=NULL);
-	node Insertion(node T,VectorXd __Median__,int __Criterian__);
-	MatrixXd QuickSort(MatrixXd __Set__,int __Criterian__,int __begin__,int __end__);
-	int Partition(MatrixXd __Set__,int __Criterian,int __begin__,int __end__);
-	MatrixXd Swap(MatrixXd __Set__,int p1,int p2);
+	node Generator(vector<double>* Input,int spliting_point=0,int depth=0,node T=NULL);
+	vector<double>* QuickSort(vector<double>* Input, int spliting_point,int begin=0,int end=1);
+	int Partition(vector<double>* Input, int spliting_point, int begin = 0,int end=1);
+	vector<double> kd_Searching(node T, vector<double> searching_point);
+	vector<double>* Swap(vector<double>* Input, int p1, int p2);
+	node getLeaf(node T,vector<double> searching_point);
 };
 
 kd_Tree::kd_Tree(){
@@ -40,66 +41,101 @@ kd_Tree::kd_Tree(int N,int k){
 	Dimension=k;
 }
 
-BSTreeNode<VectorXd >* kd_Tree::Build_kd_Tree(BSTreeNode<VectorXd >* T,MatrixXd __TrainingDataSet__,int end,int begin,int depth){
-	Dimension=(__TrainingDataSet__).rows();
-	Num_of_Samples=(__TrainingDataSet__).cols();
-	__TrainingDataSet__=QuickSort(__TrainingDataSet__,depth%Dimension,begin,end);
-	int median_p=ceil((end+begin)/2)-1;
-	VectorXd median(Dimension);
-	for(int i=0;i<Dimension;i++){
-		median(i)=(__TrainingDataSet__)(i,median_p);
+BSTreeNode<vector<double> >* kd_Tree::Generator(vector<double>* Input, int spliting_point, int depth,BSTreeNode<vector<double> >* T) {
+	typedef BSTreeNode<vector<double> > node;
+	typedef vector<double>* Set;
+	Set* subsets = new Set[2];
+	*subsets = new vector<double>[Num_of_Samples / 2];
+	*(subsets + 1) = new vector<double>[Num_of_Samples / 2];
+	Input = QuickSort(Input, spliting_point,0,Num_of_Samples);
+	if (T == NULL) {
+		T =new node( *(Input + Num_of_Samples / 2 - 1),depth);
 	}
-	if(median_p!=0){
-		T=Insertion(T,median,depth%Dimension);
-	    T->left=Build_kd_Tree(T->left,__TrainingDataSet__,median_p-1,begin=0,depth+=1);
-	    T->right=Build_kd_Tree(T->right,__TrainingDataSet__,Num_of_Samples-1,begin=median_p+1,depth+=1);
+	else {
+		for (int i = 0; i < Num_of_Samples / 2; i++) {
+			*(subsets + i)[0] = *(Input + i);
+			*(subsets + i)[1] = *(Input + i + Num_of_Samples / 2);
+		}
+		T->left->father = T;
+		T->right->father = T;
+		spliting_point = depth % Dimension;
+		depth++;
+		T->left = Generator(subsets[0], spliting_point, depth,T->left);
+		T->right = Generator(subsets[1], spliting_point, depth,T->right);
 	}
+	T->father = NULL;
 	return T;
 }
-
-BSTreeNode<VectorXd>* kd_Tree::Insertion(BSTreeNode<VectorXd>* r,VectorXd __Median__,int __Criterian__){
-	if(r==NULL){
-		r=new BSTreeNode<VectorXd>(__Median__);
+vector<double>* kd_Tree::QuickSort(vector<double>* Input, int spliting_point,int begin,int end) {
+	int p = Partition(Input, spliting_point,begin,end);
+	if (begin < end) {
+		Input = QuickSort(Input, spliting_point, begin, p - 1);
+		Input = QuickSort(Input, spliting_point, p + 1, end);
 	}
-	else if(__Median__(__Criterian__)<r->data(__Criterian__)){
-		r->left=Insertion(r->left,__Median__,__Criterian__);
-	}
-	else{
-		r->right=Insertion(r->right,__Median__,__Criterian__);
-	}
-	return r;
+	return Input;
 }
-
-queue<VectorXd> kd_Tree::KNN_Searching(VectorXd __ObjectivePoint__,node __kdTree__){
-
-}
-MatrixXd kd_Tree::QuickSort(MatrixXd __Set__,int __Criterian__,int __begin__,int __end__){
-	int Position=Partition(__Set__,__Criterian__,__begin__,__end__);
-	if(__begin__!=__end__){
-		__Set__=QuickSort(__Set__,__Criterian__,__begin__,Position-1);
-	    __Set__=QuickSort(__Set__,__Criterian__,Position+1,__end__);
-	}
-	return __Set__;
-}
-
-int kd_Tree::Partition(MatrixXd __Set__, int __Criterion__, int __begin__, int __end__) {
-	double x = __Set__(__Criterion__, __end__);
-	int position = __begin__ - 1;
-	for (int i = __begin__; i < __end__ - 1;i++) {
-		if (__Set__(__Criterion__, i) <= x) {
-			position++;
-			__Set__=Swap(__Set__, position, i);
+int kd_Tree::Partition(vector<double>* Input, int spliting_point, int begin, int end) {
+	vector<double> x = *(Input + end);
+	int p = begin - 1;
+	for (int i = begin; i < end; i++) {
+		if ((*(Input + i)).at(spliting_point) < x.at(spliting_point)) {
+			p++;
+			Input=Swap(Input, i, p);
 		}
 	}
-	__Set__ = Swap(__Set__, position + 1, __end__);
-	return position;
+	p++;
+	Swap(Input, p, end);
+	return p;
 }
-MatrixXd kd_Tree::Swap(MatrixXd __Set__, int p1, int p2) {
-	int row = __Set__.rows();
-	VectorXd temp = __Set__.block(0, p1,row,1);
-	for (int i = 0; i < __Set__.rows(); i++) {
-		__Set__(i, p1) = __Set__(i, p2);
-		__Set__(i, p2) = temp(i);
+vector<double>* kd_Tree::Swap(vector<double>* Input, int p1, int p2) {
+	vector<double> Temp;
+	Temp = *(Input + p1);
+	*(Input + p1) = *(Input + p2);
+	*(Input + p2) = Temp;
+	return Input;
+}
+vector<double> kd_Tree::kd_Searching(BSTreeNode<vector<double> >* Tree, vector<double> searching_point) {
+	typedef BSTreeNode<vector<double> >* node;
+	typedef vector<double> Set;
+	vector<double>::iterator it;
+	int depth_1,depth_2,point_1,point_2;
+	double distance_1,distance_2;
+	node leaf;
+	vector<double> result;
+	leaf=getLeaf(Tree,searching_point);
+	while(leaf!=Tree){
+		it=(leaf->data).begin();
+		depth_1=leaf->depth;
+		point_1=depth_1%Dimension;
+		depth_2=leaf->father->depth;
+		point_2=depth_2%Dimension;
+		distance_1=abs(*(it+point_1)-searching_point.at(point_1));
+		distance_2=abs(*(it+point_2)-searching_point.at(point_2));
+		if(distance_1>distance_2){
+			leaf=leaf->father;
+		}
+		else{
+			result=kd_Searching(leaf->father,searching_point);
+		}
 	}
-	return __Set__;
+	result=leaf->data;
+	return result;
+}
+BSTreeNode<vector<double> >* kd_Tree::getLeaf(BSTreeNode<vector<double> >* Tree,vector<double> searching_point){
+	typedef BSTreeNode<vector<double> >* node;
+	int depth,point;
+	node leaf=Tree;
+	vector<double>::iterator it;
+	while(leaf!=NULL){
+		it=(leaf->data).begin();
+		depth=leaf->depth;
+		point=depth%Dimension;
+		if(*(it+point)<searching_point.at(point)){
+			leaf=leaf->left;
+		}
+		else{
+			leaf=leaf->right;
+		}
+	}
+	return leaf;
 }
