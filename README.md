@@ -69,7 +69,7 @@ Generic Algorithm is a type of heuristic algorithm aiming to find an approximate
 * Generating species(samples) randomly
 * Calculating fitness function/objective function and discriminating if the optimal criterion is satisfied. 
 * Selecting parents(two samples) which own the highest fitness value, then eliminating the lowest ones. 
-* Crossover(binary code/float code/generic programming method)
+* Crossover(binary encode/float encode/character encode/generic programming method)
 * Mutation<br/>
 ### (2) SVM implemented by GA
 Essentially, SVM is to solve a constraint quadratic convex optimization. So, we merely extend GA to search a optimum point with constraint conditions. <br/>
