@@ -58,6 +58,24 @@
 * Learning Algorithm(IIS+BFGS)
 * Forecasting Algorithm(Viterbi Algorithm)
 
-# Introduction to ML Algorithms
-## Chapter 1 kNN
-### 1. Basic Theory
+# Discussion
+## 1. SVM Algorithm  with Generic Algorithm
+### (1) Generic Algorithm
+Generic Algorithm is a type of heuristic algorithm aiming to find an approximate optimal solution. The main features is:
+* Operating structural objects directly without the limitation of derivative and continuity
+* Hidden parallelity and better global searching ability
+* Searching optimal point with probability method, obtaing searching direction without any given rule automatically<br/>
+<br/>The main progress is:
+* Generating species(samples) randomly
+* Calculating fitness function/objective function and discriminating if the optimal criterion is satisfied. 
+* Selecting parents(two samples) which own the highest fitness value, then eliminating the lowest ones. 
+* Crossover(binary encode/float encode/character encode/generic programming method)
+* Mutation<br/>
+* Until terminating condition is accomplished
+### (2) SVM implemented by GA
+Essentially, SVM is to solve a constraint quadratic convex optimization. So, we merely extend GA to search a optimum point with constraint conditions. <br/>
+However, the optimum solution may fail to be found. We should replace it by an approximate one. 
+### (3) Extension to another evolutionary algorithms
+PAA and SAA are all algorithms searching for the optimum point like GA.
+
+## 2. 
