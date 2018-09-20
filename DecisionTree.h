@@ -26,7 +26,7 @@ class TableProcessor{
 	typedef int end_position;
 protected:
 	map<property,end_position> Partitioner(Table __Input,int dimension);
-	map<property,Table*> Classifier(Table __Input, map<string,double> gini);
+	map<property,Table*> Classifier(Table __Input,map<string,double> gini);
 	void swap(Table __Input,int p1,int p2);
 	Table* QuickSort(Table __Input,int dimension,double criterion,int begin=0,int end=1);
 	int Partition(Table __Input,int dimension,int begin,int end);
@@ -38,33 +38,37 @@ class DecisionTree:protected TableProcessor{
 private:
 	node root;
 	int sample_num;
+	Table __Input;
 protected:
-    DecisionTree(int Sample_num);
+    DecisionTree(Table __Input);
 	map<property,double> Gini(Table _Input);
 	double Entropy(Table __Input);
-	node Regression_Tree(Table __Input,node T = NULL,double valve=0.1);
-	node Classification_Tree(Table __Input,node T = NULL, double valve = 0.1)
-	map<property, Table*> Least_Square(Table __Input);
-	double Conditional_Entropy(Table __Input,string property);
-	double Info_Gain(Table __Input);
+	node Regression_Tree(Table Input=NULL,node T = NULL,double valve=0.1);
+	node Classification_Tree(Table Input=NULL,node T = NULL, double valve = 0.1)
+	map<property, Table*> Least_Square(Table Input);
+	double Conditional_Entropy(string property);
+	double Info_Gain();
 public:
     DecisionTree(int Sample_num);
-    node ID3(Table __Input,node T = NULL,double valve=0.1);
-    node C4.5(Table __Input,node T=NULL,double valve=0.1);
-    node CART(Table __Input,int selection, node T = NULL,double valve=0.1);
+    node ID3(node T = NULL,double valve=0.1);
+    node C4.5(node T=NULL,double valve=0.1);
+    node CART(int selection, node T = NULL,double valve=0.1);
+	friend double sum(Table* Subspace);
 };
 
-DecisionTree::DecisionTree(int Sample_num) {
+DecisionTree::DecisionTree(map<string,double>* Input) {
 	root = NULL;
-	sample_num = Sample_num;
+	sample_num = sizeof(Input);
+	__Input=new map<string,double>[sample_num];
+	__Input=Input;
 }
 
 //selection=0: Regression Tree
 //selection==1: Classification Tree
-TreeNode<map<string, double> >* DecisionTree::CART(map<string, double>* __Input, int selection, TreeNode<map<string, double> >* T,double valve) {
+TreeNode<map<string, double> >* DecisionTree::CART(int selection, TreeNode<map<string, double> >* T,double valve) {
 	if (selection == 0) {
 		if(spliting_criterion.cols()==2){
-			return Regression(__Input, T, valve);
+			return Regression_Tree(this->__Input,T, valve);
 		}
 		else {
 			throw "Please enter the right spliting criterion(for regression tree)!";
@@ -72,14 +76,14 @@ TreeNode<map<string, double> >* DecisionTree::CART(map<string, double>* __Input,
 	}
 	else {
 		if(spliting_criterion.cols()==1){
-			return Classification(__Input, T, valve);
+			return Classification_Tree(this->__Input,T, valve);
 		}
 		else {
 			throw "Please enter the right spliting criterion (for classfication tree)!";
 		}
 	}
 }
-TreeNode<map<string, double> >* DecisionTree::Regression_Tree(map<string, double>* __Input, TreeNode<map<string, double> >* T,double valve) {
+TreeNode<map<string, double> >* DecisionTree::Regression_Tree(map<string,double>* Input,TreeNode<map<string, double> >* T,double valve) {
 	typedef TreeNode<map<string, double> >* node;
 	typedef TreeNode<map<string, double> > Node;
 	typedef map<string,double>* Table;
@@ -89,9 +93,9 @@ TreeNode<map<string, double> >* DecisionTree::Regression_Tree(map<string, double
 	Table R1;
 	Table R2;
 	map<property,double> gini;
-	gini=Gini(__Input);
+	gini=Gini(Input);
 	map<property,Table*> LS;
-	it=Least_Square(__Input).begin();
+	it=Least_Square().begin();
 	Subspace=it->second;
 	R1=Subspace[0];
 	R2=Subspace[1];
@@ -104,7 +108,7 @@ TreeNode<map<string, double> >* DecisionTree::Regression_Tree(map<string, double
 	}
 	return T;
 }
-TreeNode<map<string, double> >* DecisionTree::Classification_Tree(map<string, double>* __Input, TreeNode<map<string, double> >* T, double valve) {
+TreeNode<map<string, double> >* DecisionTree::Classification_Tree(map<string,double>* Input,TreeNode<map<string, double> >* T, double valve) {
 	typedef TreeNode<map<string, double> >* node;
 	typedef TreeNode<map<string, double> > Node;
 	typedef map<string,double> value;
@@ -129,7 +133,7 @@ TreeNode<map<string, double> >* DecisionTree::Classification_Tree(map<string, do
 	return T;
 }
 
-map<map<string,double>,map<string,double>**> DecisionTree::Least_Square(map<string, double>* __Input){
+map<map<string,double>,map<string,double>**> DecisionTree::Least_Square(){
 	typedef map<string, double>* Table;
 	typedef map<string,double> value;
 	map<string,double>::iterator it;
@@ -159,7 +163,7 @@ map<map<string,double>,map<string,double>**> DecisionTree::Least_Square(map<stri
 	return result;
 }
 
-map<map<string,double>,double> DecisionTree::Gini(map<string,double>* __Input){
+map<map<string,double>,double> DecisionTree::Gini(map<string,double>* Input){
 	typedef map<string,double> value;
 	typedef map<value,double> container;
 	typedef map<value,int> classified;
@@ -210,7 +214,7 @@ void TableProcessor::swap(map<string,double>* __Input,int p1,int p2){
 map<string, double>** TableProcessor::QuickSort(map<string, double>* __Input,int dimension,double criterion,int begin,int end){
 	int q=0;
 	end=sizeof(__Input)/sizeof(*(__Input))-1;
-	map<string, double>* result[2]=new map<string,double>(end+1);
+	map<string, double>* result[2]=new map<string,double>[end+1];
 	if(begin<end){
 		int p=this->Partition(__Input,int dimension,double criterion,begin,end);
 	    __Input=QuickSort(__Input,criterion,criterion, begin, p-1);
@@ -218,11 +222,11 @@ map<string, double>** TableProcessor::QuickSort(map<string, double>* __Input,int
 	}
 	for(int i=0;i<end+1;i++){
 		if(*(__Input+i)<=criterion){
-			result[i][1]=*(__Input+i);
+			result[i][0]=*(__Input+i);
 			q++;
 		}
 		else{
-			result[i-q][2]=*(__Input+i);
+			result[i-q][1]=*(__Input+i);
 		}
 	}
 	return result;
@@ -248,6 +252,47 @@ int TableProcessor::Partition(map<string, double>* __Input,int dimension,int beg
 }
 
 
-
+double sum(map<string,double>** Subspace){
+	typedef map<String,double>* Table;
+	map<string,double>::iterator r1;
+	map<string,double>::iterator r2;
+	Table R1;
+	Table R2;
+	double sum1,sum2;
+	sum1=0;
+	sum2=0;
+	double c1,c2;
+	c1=0;
+	c2=0;
+	int size1=sizeof(Subspace[0])
+	int size2=sizeof(Subspace[1])
+	R1=new map<string,double>[size1];
+	R2=new map<string,double>[size2];
+	R1=Subspace[0];
+	R2=Subspace[1];
+	int dimension=(*(R1)).size();
+	for(int i=0;i<size1;i++){
+		r1=(*(R1+i)).begin();
+		c1+=(*(r1+dimension-1)).second;
+	}
+	c1=c1/size1;
+	
+	for(int i=0;i<size;i++){
+		r2=(*(R2+i)).begin();
+		c2+=(*(r1+dimension-1)).second;
+	}
+	c2=c2/size2;
+	for(int i=0;i<size1;i++){
+		for(r1=(*(R1)).begin();r1!=(*(R1)).end();++r1){
+			sum1+=pow((*r1).second-c1,2);
+		}
+	}
+	for(int i=0;i<size2;i++){
+		for(r2=(*(R2)).begin();r2!=(*(R2)).end();++r2){
+			sum2+=pow((*r2).second-c2,2);
+		}
+	}
+	return sum1+sum2;
+}
 #endif
 
