@@ -5,9 +5,11 @@
 * Some Algorithms optimized for better performance
 * Packed in DLL which Python can import
 * References: <br/>
-1. Statistic Learning Method, Hang Li, Tsinghua University Press
-2. Pattern Classification, Richard Duda
-3. Introduction to data mining, 
+1. Statistic Learning Method, Hang Li, Tsinghua University Press<br/>
+2. Pattern Classification, Richard Duda<br/>
+3. Introduction to data mining, <br/>
+
+## Framework:
 
 # Contents
 
