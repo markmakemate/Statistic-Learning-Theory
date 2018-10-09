@@ -12,8 +12,9 @@
 ## Framework:
 1. Framework: <br/>
 ![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/Framwork.png)
+2. Classifiers' Collection: <br/>
+![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/Classifiers'_collection.png)
 # Contents
-
 ## 1. kNN Algorithm
 * kd Tree
 * Stroage Model: template<class Elemtype> struct TreeNode{}
