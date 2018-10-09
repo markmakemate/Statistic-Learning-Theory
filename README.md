@@ -28,8 +28,6 @@
 * Stroage Model: template<class Elemtype> struct TreeNode{}
  
 ## 2. Decision Tree
-* Storage Model: map<string,double>* as Table
-* Store subspace: map<vector<double>,Table*>
 * The progress of Least Square:
  Calculating the sum of elements in Y;<br/>
  Searching least square starting from j=1;<br/>
