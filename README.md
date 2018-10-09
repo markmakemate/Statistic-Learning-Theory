@@ -8,6 +8,7 @@
 1. Statistic Learning Method, Hang Li, Tsinghua University Press<br/>
 2. Pattern Classification, Richard Duda<br/>
 3. Introduction to data mining, <br/>
+* Design Patterns: Construct pattern, Fatory pattern, iterator, decorator， MVC
 
 ## Framework:
 1. Framework: <br/>
