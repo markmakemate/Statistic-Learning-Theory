@@ -32,13 +32,12 @@
  Calculating the sum of elements in Y;<br/>
  Searching least square starting from j=1;<br/>
  Traversal j=2,3,....,N;<br/>
- Complexity: O(N^2);<br/>
- Solving least square by dynamic programming<br/>
+ **Complexity: O(N^2)**;<br/>
+ Solving least square by **dynamic programming**<br/>
 * Gini Index:
- Counting classes' capacity by partition strategy;<br/>
- Complexity of counting: O(N);<br/>
- Store classfication: map<property,count>;<br/>
- Complexity of calculating Complexity of Gini: O(kN), k is the dimension<br/>
+ Counting classes' capacity by *partition strategy*;<br/>
+ **Complexity of counting: O(N)**;<br/>
+ **Complexity of calculating Complexity of Gini: O(kN), k is the dimension**<br/>
 * Prunning:
  Postorder Traversal to calculate Gini and loss function for every node;<br/>
  leaf nodes will be stored in a queue;<br/>
