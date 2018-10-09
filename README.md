@@ -1,14 +1,14 @@
 # Statistic-Learning-Theory
 ## This project is the code implement of AI algorithms
 ## Features:
-* Implementing without any Third-party Library, only STL imported
-* Some Algorithms optimized for better performance
-* Packed in DLL which Python can import
+* **Implementing without any Third-party Library, only STL imported**
+* **Some Algorithms optimized for better performance**
+* **Packed in DLL which Python can import**
 * References: <br/>
-1. Statistic Learning Method, Hang Li, Tsinghua University Press<br/>
-2. Pattern Classification, Richard Duda<br/>
-3. Introduction to data mining, <br/>
-* Design Patterns: Construct pattern, Fatory pattern, iterator, decorator， MVC
+1. *Statistic Learning Method*, Hang Li, Tsinghua University Press<br/>
+2. *Pattern Classification*, Richard Duda<br/>
+3. *Introduction to data mining*, <br/>
+* **Design Patterns**: *Construct pattern, Fatory pattern, iterator, decorator， MVC*
 
 ## Framework:
 1. Framework: <br/>
