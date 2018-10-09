@@ -10,7 +10,8 @@
 3. Introduction to data mining, <br/>
 
 ## Framework:
-
+1. Framework: <br/>
+![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/Framwork.png)
 # Contents
 
 ## 1. kNN Algorithm
@@ -21,20 +22,20 @@
 * Storage Model: map<string,double>* as Table
 * Store subspace: map<vector<double>,Table*>
 * The progress of Least Square:
- Calculating the sum of elements in Y;
- Searching least square starting from j=1;
- Traversal j=2,3,....,N;
- Complexity: O(N^2);
- Solving least square by dynamic programming
+ Calculating the sum of elements in Y;<br/>
+ Searching least square starting from j=1;<br/>
+ Traversal j=2,3,....,N;<br/>
+ Complexity: O(N^2);<br/>
+ Solving least square by dynamic programming<br/>
 * Gini Index:
- Counting classes' capacity by partition strategy;
- Complexity of counting: O(N);
- Store classfication: map<property,count>;
- Complexity of calculating Complexity of Gini: O(kN), k is the dimension
+ Counting classes' capacity by partition strategy;<br/>
+ Complexity of counting: O(N);<br/>
+ Store classfication: map<property,count>;<br/>
+ Complexity of calculating Complexity of Gini: O(kN), k is the dimension<br/>
 * Prunning:
- Postorder Traversal to calculate Gini and loss function for every node;
- leaf nodes will be stored in a queue;
- Postorder Traversal searching and prunning from leaf nodes;
+ Postorder Traversal to calculate Gini and loss function for every node;<br/>
+ leaf nodes will be stored in a queue;<br/>
+ Postorder Traversal searching and prunning from leaf nodes;<br/>
  * CART Algorithm Complexity: O(kN+logN) for big data: O(N+logN);
  
 ## 3. Max Entropy and Logestic Regression
@@ -71,7 +72,7 @@
 # Discussion
 ## 1. SVM Algorithm  with Generic Algorithm
 ### (1) Generic Algorithm
-Generic Algorithm is a type of heuristic algorithm aiming to find an approximate optimal solution. The main features is:
+Generic Algorithm is a type of heuristic algorithm aiming to find an approximate optimal solution. The main features is:<br/>
 * Operating structural objects directly without the limitation of derivative and continuity
 * Hidden parallelity and better global searching ability
 * Searching optimal point with probability method, obtaing searching direction without any given rule automatically<br/>
