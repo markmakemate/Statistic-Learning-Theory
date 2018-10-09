@@ -12,7 +12,7 @@
 * **Design Patterns**: *Construct pattern, Fatory pattern, iterator, decorator， MVC*
 
 ## Framework:
-1. Framework: <br/>
+1. Data I/O: <br/>
 ![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/Framwork.png)
 2. Classifiers' Collection: <br/>
 ![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/Classifiers'_collection.png)
