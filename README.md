@@ -4,6 +4,7 @@
 * **Implementing without any Third-party Library, only STL imported**
 * **Some Algorithms optimized for better performance**
 * **Packed in DLL which Python can import**
+* **Implement Lieaner Algebra Class**
 * References: <br/>
 1. *Statistic Learning Method*, Hang Li, Tsinghua University Press<br/>
 2. *Pattern Classification*, Richard Duda<br/>
