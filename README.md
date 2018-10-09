@@ -57,9 +57,11 @@
 * Using Generic Algorithm for SVM
 * Using Particle Swarm Optimization for SVM
 * Using Simulated Annealing Algorithm for SVM
+* Heuristic Algorithms: *subclass* of SVM, implements the *interfaces* of a SVM object
 
 ## 5. AdaBoost
-* Boosting Tree
+* **Template Design Pattern**
+* Boosting Tree: *subclass of AdaBoost*, implements the *interfaces* of a AdaBoost object
 
 ## 6. Random Forest
 * N CART Trees
