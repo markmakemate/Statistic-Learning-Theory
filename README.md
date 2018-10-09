@@ -14,7 +14,9 @@
 1. Framework: <br/>
 ![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/Framwork.png)
 2. Classifiers' Collection: <br/>
-![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/Classifiers'_collection.png)
+![image]https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/Classifiers'_collection.png
+3. Application layer: <br/>
+![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/MVC.png)
 # Contents
 ## 1. kNN Algorithm
 * kd Tree
