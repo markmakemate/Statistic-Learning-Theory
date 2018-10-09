@@ -13,7 +13,7 @@
 
 ## Framework:
 1. Data I/O: <br/>
-![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/Framwork.png)
+![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/Framework.png)
 2. Classifiers' Collection: <br/>
 ![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/Classifiers'_collection.png)
 3. Application layer: <br/>
