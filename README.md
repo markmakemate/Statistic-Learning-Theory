@@ -4,7 +4,7 @@
 * **Implementing without any Third-party Library, only STL imported**
 * **Some Algorithms optimized for better performance**
 * **Packed in DLL which Python can import**
-* **Implement Lieaner Algebra Class**
+* **Implement Linear Algebra Class**
 * References: <br/>
 1. *Statistic Learning Method*, Hang Li, Tsinghua University Press<br/>
 2. *Pattern Classification*, Richard Duda<br/>
@@ -18,6 +18,10 @@
 ![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/Classifiers'_collection.png)
 3. Application layer: <br/>
 ![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/MVC.png)
+
+## Tips:
+1. We assume that the input data have been **preprocessed**(*cleaning, transformation, reduction, integration*) <br/>
+2. **Data's quality is not considered in**.<br/>
 # Contents
 ## 1. kNN Algorithm
 * kd Tree
