@@ -4,6 +4,8 @@
 * **Implementing without any Third-party Library, only STL imported**
 * **Some Algorithms optimized for better performance**
 * **Packed in DLL which Python can import**
+* **Extensionability**: Parallel/Distributed Calculation
+* **Database system supported**: Key-Value, relation DB, distributed DB
 * **Implement Linear Algebra Class**
 * References: <br/>
 1. *Statistic Learning Method*, Hang Li, Tsinghua University Press<br/>
@@ -22,6 +24,11 @@
 ## Tips:
 1. We assume that the input data have been **preprocessed**(*cleaning, transformation, reduction, integration*) <br/>
 2. **Data's quality is not considered in**.<br/>
+3. Table class is a data container which represents a data table in an abstract way<br/>
+4. Collection class is a set contains many Table objects which have been labeled<br/>
+5. DataSet class is a set contains many Collections object which a Classifier object use directly.It provides a container with labeled Collection objects<br/>
+6. DataLoader class which can load DataSet object for parallel/distributed/multithread calculation or distributed store.<br/>
+7. Classifier object can only use DataSet object for its training data.<br/>
 # Contents
 ## 1. kNN Algorithm
 * kd Tree
