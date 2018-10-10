@@ -48,7 +48,7 @@
 5. DataSet class is a set contains many Collections object which a Classifier object use directly.It provides a container with labeled Collection objects<br/>
 6. DataLoader class which can load DataSet object for parallel/distributed/multithread calculation or distributed store.<br/>
 7. Classifier object can only use DataSet object for its training data.<br/>
-# Contents
+# AI Algorithms:
 ## 1. kNN Algorithm
 * kd Tree
 * kd Tree Search
