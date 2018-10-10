@@ -7,6 +7,7 @@
 * **Extensionability**: Parallel/Distributed Calculation
 * **Database system supported**: Key-Value, relation DB, distributed DB
 * **Implement Linear Algebra Class**
+* **Only Algorithms implement took into account, regardless of Feature enginneering and data preprocession.**
 ## References:
 1. *Statistic Learning Method*, Hang Li, Tsinghua University Press<br/>
 2. *Pattern Classification*, Richard Duda<br/>
@@ -86,6 +87,8 @@
 * Probability Calculation Algorithm(forward+backward)
 * Learning Algorithm(IIS+BFGS)
 * Forecasting Algorithm(Viterbi Algorithm)
+## 10 Clustering:
+
 
 # Discussion
 ## 1. SVM Algorithm  with Generic Algorithm
