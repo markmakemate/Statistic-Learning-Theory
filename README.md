@@ -1,5 +1,8 @@
 # Statistic-Learning-Theory
-## This project is the C++ implement of AI algorithms
+## This project will integrates AI algorithms, Big Data platform and application
+* AI Algorithms: C++
+* Big Data platform: Java
+* Application Layer: Python
 ## Objective: 
 * Create an effective Artificial Intelligence application system for most conditions
 * Framework is as simple as possible
@@ -11,7 +14,7 @@
 * **Create a DLL so that Python can import**
 * **Extensionability**: Parallel/Distributed Calculation
 * **Database system supported**: Key-Value, relation DB, distributed DB
-* **Implement Linear Algebra Class**
+* **Implement Linear Algebra Class in C++**
 * **Three layers divided: Application Layer, Data Layer, Algorithm Layer**
 ## References:
 1. *Statistic Learning Method*, Hang Li, Tsinghua University Press<br/>
