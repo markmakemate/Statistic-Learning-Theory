@@ -3,7 +3,7 @@
 ## Features:
 * **Implementing without any Third-party Library, only STL imported**
 * **Some Algorithms optimized for better performance**
-* **Packed in DLL which Python can import**
+* **Create a DLL so that Python can import**
 * **Extensionability**: Parallel/Distributed Calculation
 * **Database system supported**: Key-Value, relation DB, distributed DB
 * **Implement Linear Algebra Class**
