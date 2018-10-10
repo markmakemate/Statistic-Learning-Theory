@@ -27,8 +27,10 @@
 ![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/Framework.png)
 2. Classifiers' Collection: <br/>
 ![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/Classifiers'_collection.png)
-3. Application layer: <br/>
+3. Framework of software: <br/>
 ![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/MVC.png)
+5. The whole framework: <br/>
+![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/Framework_1.png)
 
 ## Tips:
 1. We assume that the input data have been **preprocessed**(*cleaning, transformation, reduction, integration*) <br/>
