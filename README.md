@@ -13,9 +13,10 @@
 3. *Introduction to data mining*, <br/>
 ## Design Patterns: 
 1. Construct pattern<br/>
-2. Fatory patterniterator
-3. decorator<br/> 
-4. MVC<br/>
+2. Fatory pattern<br/>
+3. iterator<br/>
+4. decorator<br/> 
+5. MVC<br/>
 ## Framework:
 1. Data I/O: <br/>
 ![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/Framework.png)
