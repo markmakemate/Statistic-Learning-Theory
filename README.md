@@ -64,7 +64,7 @@
 * Using Generic Algorithm for SVM
 * Using Particle Swarm Optimization for SVM
 * Using Simulated Annealing Algorithm for SVM
-* Heuristic Algorithms: *subclass* of SVM, implements the *interfaces* of a SVM object
+* Heuristic Algorithms: *subclass* of SVM, implements the *interfaces* of SVM
 
 ## 5. AdaBoost
 * **Template Design Pattern**
