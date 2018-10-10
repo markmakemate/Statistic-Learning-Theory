@@ -1,5 +1,5 @@
 # Statistic-Learning-Theory
-## This project is the code implement of AI algorithms
+## This project is the C++ implement of AI algorithms
 ## Features:
 * **Implementing without any Third-party Library, only STL imported**
 * **Some Algorithms optimized for better performance**
