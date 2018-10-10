@@ -36,8 +36,7 @@
 # Contents
 ## 1. kNN Algorithm
 * kd Tree
-* Stroage Model: template<class Elemtype> struct TreeNode{}
- 
+* kd Tree Search
 ## 2. Decision Tree
 * The progress of Least Square:
  Calculating the sum of elements in Y;<br/>
