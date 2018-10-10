@@ -1,5 +1,6 @@
 # Statistic-Learning-Theory
 ## This project is the C++ implement of AI algorithms
+## Objective: Create an effective Artificial Intelligence application system for most conditions
 ## Features:
 * **Implementing without any Third-party Library, only STL imported**
 * **Some Algorithms optimized for better performance**
@@ -8,6 +9,7 @@
 * **Database system supported**: Key-Value, relation DB, distributed DB
 * **Implement Linear Algebra Class**
 * **Only Algorithms implement took into account, regardless of Feature enginneering and data preprocess.**
+* **Three layers divided: Application Layer, Data Layer, Algorithm Layer**
 ## References:
 1. *Statistic Learning Method*, Hang Li, Tsinghua University Press<br/>
 2. *Pattern Classification*, Richard Duda<br/>
