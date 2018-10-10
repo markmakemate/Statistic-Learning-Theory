@@ -12,8 +12,10 @@
 2. *Pattern Classification*, Richard Duda<br/>
 3. *Introduction to data mining*, <br/>
 ## Design Patterns: 
-*Construct pattern, Fatory pattern, iterator, decorator， MVC*
-
+1. Construct pattern<br/>
+2. Fatory patterniterator
+3. decorator<br/> 
+4. MVC<br/>
 ## Framework:
 1. Data I/O: <br/>
 ![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/Framework.png)
