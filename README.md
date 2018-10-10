@@ -27,7 +27,7 @@
 
 ## Tips:
 1. We assume that the input data have been **preprocessed**(*cleaning, transformation, reduction, integration*) <br/>
-2. **Data's quality is not considered in**.<br/>
+2. **Feature enginneering is not considered in**.<br/>
 3. Table class is a data container which represents a data table in an abstract way<br/>
 4. Collection class is a set contains many Table objects which have been labeled<br/>
 5. DataSet class is a set contains many Collections object which a Classifier object use directly.It provides a container with labeled Collection objects<br/>
