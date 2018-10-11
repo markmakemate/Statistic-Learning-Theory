@@ -31,13 +31,13 @@
 4. decorator<br/> 
 5. MVC<br/>
 # Framework:
-# 1. Data I/O: 
+## 1. Data I/O: 
 ![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/Framework.png)
-# 2. Classifiers' Collection: 
+## 2. Classifiers' Collection: 
 ![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/Classifiers'_collection.png)
-# 3. Framework of System:
+## 3. Framework of System:
 ![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/MVC.png)
-# 4. The Whole Framework:
+## 4. The Whole Framework:
 ![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/Framework_1.png)
 
 # Tips:
