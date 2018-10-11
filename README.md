@@ -35,9 +35,9 @@
 ![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/Framework.png)
 2. Classifiers' Collection: <br/>
 ![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/Classifiers'_collection.png)
-3. Framework of software: <br/>
+3. Framework of System: <br/>
 ![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/MVC.png)
-5. The whole framework: <br/>
+5. The Whole Framework: <br/>
 ![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/Framework_1.png)
 
 ## Tips:
