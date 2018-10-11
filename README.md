@@ -9,7 +9,7 @@
 * Extensionability should be satisfied
 * **Feature enginneering and data preprocess are not took into account.**
 ## Features:
-* **Implementing without any Third-party Library, only STL imported**
+* **Implementing algorithms without any Third-party Library, only C++ STL imported**
 * **Some Algorithms optimized for better performance**
 * **Create a DLL so that Python can import**
 * **Extensionability**: Parallel/Distributed Calculation
