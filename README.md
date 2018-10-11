@@ -58,30 +58,30 @@ Two kinds of units: Raw, Column<br/>
 Raw-Oriented Table is Table's subclass whose storage units are samples;<br/>
 Class name: Table_Raw<br/>
 Some methods are implemented to operate a Table_Raw object:<br/>
-* Constructor: initialize a Table_Raw object(Override it which can load a input data set)
-* build: build a Table_Raw object(Input format: map<index,Raw>)
-* push: insert a Raw object
-* pop: delete a Raw unit
-* Override []: return a Raw object for a fixed index of sample
-* dimension: return the dimension of each sample
-* num: return the number of samples<br/>
+a. Constructor: initialize a Table_Raw object(Override it which can load a input data set)<br/>
+b. build: build a Table_Raw object(Input format: map<index,Raw>)<br/>
+c. push: insert a Raw object<br/>
+d. pop: delete a Raw unit<br/>
+e. Override []: return a Raw object for a fixed index of sample<br/>
+f. dimension: return the dimension of each sample<br/>
+g. num: return the number of samples<br/>
 (2) Column-Oriented Table<br/>
 Column-Oriented Table is Table's subclass whose storage units are character instead of samples;<br/>
 Class name: Table_Column<br/>
 Some methods are to operate a Table_Column object:<br/>
-* Constructor: initialize a Table_Column object(Override it which can load a input data set)
-* build: build a Table_Column object(Input format: map<index,Column>)
-* push: insert a Column object
-* pop: delete a Column unit
-* Override []: return a Column object for a fixed character
-* dimension: return the dimension of each sample
-* num: return the number of samples
-* Gini: return Gini index of a fixed character
-* Entropy: return information entropy of a fixed character
-* Conditional Entropy: return all conditional entropy of two fixed characters
-* Info_Gain: return all information gain of two fixed characters
-* QuickSort: Sort the Table_Column object's raw as Quick Sort Algorithm
-* Partition: Partition method for Quick sort<br/>
+a. Constructor: initialize a Table_Column object(Override it which can load a input data set)<br/>
+b. build: build a Table_Column object(Input format: map<index,Column>)<br/>
+c. push: insert a Column object<br/>
+d. pop: delete a Column unit<br/>
+e. Override []: return a Column object for a fixed character<br/>
+f. dimension: return the dimension of each sample<br/>
+g. num: return the number of samples<br/>
+h. Gini: return Gini index of a fixed character<br/>
+i. Entropy: return information entropy of a fixed character<br/>
+j. Conditional Entropy: return all conditional entropy of two fixed characters<br/>
+k. Info_Gain: return all information gain of two fixed characters<br/>
+l. QuickSort: Sort the Table_Column object's raw as Quick Sort Algorithm<br/>
+m. Partition: Partition method for Quick sort<br/>
 (3) Table<br/>
 Table is an abstract container to store a data set;<br/>
 Table provides interfaces implemented in Table_Raw and Table_Column respectedly.<br/>
