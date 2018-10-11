@@ -20,7 +20,7 @@
 1. *Statistic Learning Method*, Hang Li, Tsinghua University Press<br/>
 2. *Pattern Classification*, Richard Duda<br/>
 3. *Introduction to data mining*, <br/>
-4. *C++ Refrences*<br/>
+4. *C++ Refrence: http://www.cplusplus.com/reference/*<br/>
 5. *C++ Primer Plus*,Stephen Prata,2015<br/>
 6. *The Annotated STL Sources(using SGI STL)*,Jie Hou, HUST Press.<br/>
 7. *Design Patterns: Elements of Reusable Object-Oriented Software*,Erich Gamma & Richard Helm &  Ralph Johnson, China Mechine Press,2007
