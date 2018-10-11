@@ -53,7 +53,7 @@
 Table represents a data set in an abstract way<br/>
 Two kinds Table: raw-oriented Table, column-oriented Table(transposition of raw-oriented Table)<br/>
 Two kinds of units: Raw, Column<br/>
-**Template design pattern**
+**Template design pattern**<br/>
 (1) Raw-Oriented Table<br/>
 Raw-Oriented Table is Table's subclass whose storage units are samples;<br/>
 Class name: Table_Raw<br/>
