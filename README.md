@@ -3,12 +3,12 @@
 * AI Algorithms: C++
 * Big Data platform: Java
 * Application Layer: Python
-## Objective: 
+# Objective: 
 * Create an effective Artificial Intelligence application system for most conditions
 * Framework is as simple as possible
 * Extensionability should be satisfied
 * **Feature enginneering and data preprocess are not took into account.**
-## Features:
+# Features:
 * **Implementing algorithms without any Third-party Library, only C++ STL imported**
 * **Some Algorithms optimized for better performance**
 * **Create a DLL so that Python can import**
@@ -16,7 +16,7 @@
 * **Database system supported**: Key-Value, relation DB, distributed DB
 * **Implement Linear Algebra(Table, Raw, Column)Class in C++**
 * **Three layers divided: Application Layer, Data Layer, Algorithm Layer**
-## References:
+# References:
 1. *Statistic Learning Method*, Hang Li, Tsinghua University Press<br/>
 2. *Pattern Classification*, Richard Duda<br/>
 3. *Introduction to data mining*, <br/>
@@ -24,13 +24,13 @@
 5. *C++ Primer Plus*,Stephen Prata,2015<br/>
 6. *The Annotated STL Sources(using SGI STL)*,Jie Hou, HUST Press.<br/>
 7. *Design Patterns: Elements of Reusable Object-Oriented Software*,Erich Gamma & Richard Helm &  Ralph Johnson, China Mechine Press,2007
-## Design Patterns: 
+# Design Patterns: 
 1. Construct pattern<br/>
 2. Fatory pattern<br/>
 3. iterator<br/>
 4. decorator<br/> 
 5. MVC<br/>
-## Framework:
+# Framework:
 1. Data I/O: <br/>
 ![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/Framework.png)
 2. Classifiers' Collection: <br/>
@@ -40,7 +40,7 @@
 5. The Whole Framework: <br/>
 ![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/Framework_1.png)
 
-## Tips:
+# Tips:
 1. We assume that the input data have been **preprocessed**(*cleaning, transformation, reduction, integration*) <br/>
 2. **Feature enginneering is not considered in**.<br/>
 3. Table class is a data container which represents a data table in an abstract way<br/>
