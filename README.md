@@ -82,7 +82,7 @@ Class name: Table_Column<br/>
 *i. Entropy: return information entropy of a fixed character*<br/>
 *j. Conditional Entropy: return all conditional entropy of two fixed characters*<br/>
 *k. Info_Gain: return all information gain of two fixed characters*<br/>
-*l. QuickSort: Sort the Table_Column object's raw as Quick Sort Algorithm*<br/>
+*l. QuickSort: Sort the Table_Column object's samples' position for a given character as Quick Sort Algorithm*<br/>
 *m. Partition: Partition method for Quick sort*<br/>
 (3) **Table**<br/>
 Table is an abstract container to store a data set;<br/>
