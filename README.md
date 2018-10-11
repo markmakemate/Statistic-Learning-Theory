@@ -14,7 +14,7 @@
 * **Create a DLL so that Python can import**
 * **Extensionability**: Parallel/Distributed Calculation
 * **Database system supported**: Key-Value, relation DB, distributed DB
-* **Implement Linear Algebra Class in C++**
+* **Implement Linear Algebra(Table, Raw, Column)Class in C++**
 * **Three layers divided: Application Layer, Data Layer, Algorithm Layer**
 ## References:
 1. *Statistic Learning Method*, Hang Li, Tsinghua University Press<br/>
@@ -48,6 +48,56 @@
 5. DataSet class is a set contains many Collections object which a Classifier object use directly.It provides a container with labeled Collection objects<br/>
 6. DataLoader class which can load DataSet object for parallel/distributed/multithread calculation or distributed store.<br/>
 7. Classifier object can only use DataSet object for its training data.<br/>
+# Data Processors:
+## 1. Table
+Table represents a data set in an abstract way<br/>
+Two kinds Table: raw-oriented Table, column-oriented Table(transposition of raw-oriented Table)<br/>
+Two kinds of units: Raw, Column<br/>
+**Template design pattern**
+(1) Raw-Oriented Table<br/>
+Raw-Oriented Table is Table's subclass whose storage units are samples;<br/>
+Class name: Table_Raw<br/>
+Some methods are implemented to operate a Table_Raw object:<br/>
+* Constructor: initialize a Table_Raw object(Override it which can load a input data set)
+* build: build a Table_Raw object(Input format: map<index,Raw>)
+* push: insert a Raw object
+* pop: delete a Raw unit
+* Override []: return a Raw object for a fixed index of sample
+* dimension: return the dimension of each sample
+* num: return the number of samples
+(2) Column-Oriented Table<br/>
+Column-Oriented Table is Table's subclass whose storage units are character instead of samples;<br/>
+Class name: Table_Column<br/>
+Some methods are to operate a Table_Column object:<br/>
+* Constructor: initialize a Table_Column object(Override it which can load a input data set)
+* build: build a Table_Column object(Input format: map<index,Column>)
+* push: insert a Column object
+* pop: delete a Column unit
+* Override []: return a Column object for a fixed character
+* dimension: return the dimension of each sample
+* num: return the number of samples
+* Gini: return Gini index of a fixed character
+* Entropy: return information entropy of a fixed character
+* Conditional Entropy: return all conditional entropy of two fixed characters
+* Info_Gain: return all information gain of two fixed characters
+* QuickSort: Sort the Table_Column object's raw as Quick Sort Algorithm
+* Partition: Partition method for Quick sort
+(3) Table<br/>
+Table is an abstract container to store a data set;<br/>
+Table provides interfaces implemented in Table_Raw and Table_Column respectedly.<br/>
+User only construct a Table object then call API. Program will automatically decide which Table will build
+(4) Raw<br/>
+Raw is an abstract container to store a sample<br/>
+Input format: map<prop_type,value_type><br/>
+Methods:<br/>
+* build: build a Raw object with tag sample_index
+(6) Column<br/>
+Column is an abstract container to store <br/>
+Input format: map<prop_type,value_type><br/>
+Methods:<br/>
+* build:  build a Column object with tag prop_type
+# 2. Collections:
+
 # AI Algorithms:
 ## 1. kNN Algorithm
 * kd Tree
