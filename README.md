@@ -64,7 +64,7 @@ Some methods are implemented to operate a Table_Raw object:<br/>
 * pop: delete a Raw unit
 * Override []: return a Raw object for a fixed index of sample
 * dimension: return the dimension of each sample
-* num: return the number of samples
+* num: return the number of samples<br/>
 (2) Column-Oriented Table<br/>
 Column-Oriented Table is Table's subclass whose storage units are character instead of samples;<br/>
 Class name: Table_Column<br/>
@@ -81,21 +81,21 @@ Some methods are to operate a Table_Column object:<br/>
 * Conditional Entropy: return all conditional entropy of two fixed characters
 * Info_Gain: return all information gain of two fixed characters
 * QuickSort: Sort the Table_Column object's raw as Quick Sort Algorithm
-* Partition: Partition method for Quick sort
+* Partition: Partition method for Quick sort<br/>
 (3) Table<br/>
 Table is an abstract container to store a data set;<br/>
 Table provides interfaces implemented in Table_Raw and Table_Column respectedly.<br/>
-User only construct a Table object then call API. Program will automatically decide which Table will build
+User only construct a Table object then call API. Program will automatically decide which Table will build<br/>
 (4) Raw<br/>
 Raw is an abstract container to store a sample<br/>
 Input format: map<prop_type,value_type><br/>
 Methods:<br/>
-* build: build a Raw object with tag sample_index
+* build: build a Raw object with tag sample_index<br/>
 (6) Column<br/>
 Column is an abstract container to store <br/>
 Input format: map<prop_type,value_type><br/>
 Methods:<br/>
-* build:  build a Column object with tag prop_type
+* build:  build a Column object with tag prop_type<br/>
 # 2. Collections:
 
 # AI Algorithms:
