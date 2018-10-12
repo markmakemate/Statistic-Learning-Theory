@@ -3,6 +3,8 @@
 * AI Algorithms: C++
 * Big Data platform: Java
 * Application Layer: Python
+* Platform: Windows, Linux
+* Compile Environment: Ubuntu 16.04 LTS
 # Objective: 
 * Create an effective Artificial Intelligence application system for most conditions
 * Framework is as simple as possible
