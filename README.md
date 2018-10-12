@@ -5,7 +5,7 @@
 * Application Layer: Python
 * Platform: Windows, Linux
 * Compile Environment: Ubuntu 16.04 LTS 64-bit
-# Objective: 
+# Objectives: 
 * Create an effective Artificial Intelligence application system for most conditions
 * Framework is as simple as possible
 * Extensionability should be satisfied
@@ -32,7 +32,7 @@
 3. iterator<br/>
 4. decorator<br/> 
 5. MVC<br/>
-# Framework:
+# Frameworks:
 ## 1. Data I/O: 
 ![image](https://github.com/markmakemate/Statistic-Learning-Theory/blob/master/Framework.png)
 ## 2. Classifiers' Collection: 
