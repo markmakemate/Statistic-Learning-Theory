@@ -9,7 +9,7 @@
 * Create an effective Artificial Intelligence application system for most conditions
 * Framework is as simple as possible
 * Extensionability should be satisfied
-* **Feature enginneering and data preprocess are not took into account.**
+* **Feature enginneering and data preprocess are not included.**
 # Features:
 * **Implementing algorithms without any Third-party Library, only C++ STL imported**
 * **Some Algorithms optimized for better performance**
@@ -18,6 +18,10 @@
 * **Database system supported**: Key-Value, relation DB, distributed DB
 * **Implement Linear Algebra(Table, Raw, Column)Class in C++**
 * **Three layers divided: Application Layer, Data Layer, Algorithm Layer**
+# Improved and Creative Points:
+* **Evolution Algorithms** to implement the progress of convex optimization
+* **Provide a abstract Table Class to store a data set, users can simply construct a Table object to operate data.** 
+* **Iterator** is provided for Collection, DataSet and DataLoader;
 # References:
 1. *Statistic Learning Method*, Hang Li, Tsinghua University Press<br/>
 2. *Pattern Classification*, Richard Duda<br/>
