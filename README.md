@@ -20,7 +20,7 @@
 * **Three layers divided: Application Layer, Data Layer, Algorithm Layer**
 # Improved and Creative Points:
 * **Evolution Algorithms** to implement the progress of convex optimization
-* **Provide a abstract Table Class to store a data set, users can simply construct a Table object to operate data.** 
+* **Provide an abstract Table Class to store a data set, users can simply construct a Table object to operate data.** 
 * **Iterator** is provided for Collection, DataSet and DataLoader;
 # References:
 1. *Statistic Learning Method*, Hang Li, Tsinghua University Press<br/>
@@ -93,7 +93,7 @@ Class name: Table_Column<br/>
 (3) **Table**<br/>
 Table is an abstract container to store a data set;<br/>
 Table provides interfaces implemented in Table_Raw and Table_Column respectedly.<br/>
-User only construct a Table object then call API. Program will automatically decide which Table will build<br/>
+User only construct a Table object then call API. Program will automatically decide which Table will be built<br/>
 (4) **Raw**<br/>
 Raw is an abstract container to store a sample<br/>
 Input format: map<prop_type,value_type><br/>
