@@ -72,7 +72,7 @@ Class name: Table_Raw<br/>
 *e. Override []: return a Raw object for a fixed index of sample*<br/>
 *f. dimension: return the dimension of each sample*<br/>
 *g. num: return the number of samples*<br/>
-(2) **Column-Oriented Table**<br/>
+(2) **Column-Oriented Table(transposition of Raw-Oriented Table**<br/>
 Column-Oriented Table is Table's subclass whose storage units are character instead of samples;<br/>
 Class name: Table_Column<br/>
 <br/>
