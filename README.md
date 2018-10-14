@@ -101,7 +101,7 @@ Input format: map<prop_type,value_type><br/>
 *Methods:*<br/>
 *a. build: build a Raw object with tag sample_index*<br/>
 (6) **Column**<br/>
-Column is an abstract container to store <br/>
+Column is an abstract container to store all values of samples with one character<br/>
 Input format: map<prop_type,value_type><br/>
 *Methods:*<br/>
 *build:  build a Column object with tag prop_type*<br/>
