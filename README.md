@@ -21,7 +21,7 @@
 # Improved and Creative Points:
 * **Evolution Algorithms** to implement the progress of convex optimization
 * **Provide an abstract Table Class to store a data set, users can simply construct a Table object to operate data.** 
-* **Iterator** is provided for Collection, DataSet and DataLoader;
+* **Iterator** is provided for Table, Collection, DataSet and DataLoader;
 # References:
 1. *Statistic Learning Method*, Hang Li, Tsinghua University Press<br/>
 2. *Pattern Classification*, Richard Duda<br/>
