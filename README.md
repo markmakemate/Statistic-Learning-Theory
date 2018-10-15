@@ -73,7 +73,7 @@ Class name: Table_Raw<br/>
 *f. dimension: return the dimension of each sample*<br/>
 *g. num: return the number of samples*<br/>
 ### (2) **Column-Oriented Table(transposition of Raw-Oriented Table)**
-Column-Oriented Table is Table's subclass whose storage units are character instead of samples;<br/>
+Column-Oriented Table is Table's subclass whose storage units are characters instead of samples;<br/>
 Class name: Table_Column<br/>
 <br/>
 *Some methods are to operate a Table_Column object:*<br/>
