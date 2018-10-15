@@ -15,9 +15,11 @@ class Table_Raw:public Table<sample_index,prop_type,value_type>{
     typedef Table_Column<sample_index,prop_type,value_type> table_column;
 private:
     table Data;
+    table_column Data_Column;
     int dimension;
 public:
     Table_Raw();
+    Table_Raw(const table& Input);
     void build(const table& Input);
     void push(const raw& sample);
     void pop(const sample_index& position);
