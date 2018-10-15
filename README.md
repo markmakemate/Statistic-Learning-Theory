@@ -18,6 +18,7 @@
 * **Database system supported**: Key-Value, relation DB, distributed DB
 * **Implement Linear Algebra(Table, Raw, Column)Class in C++**
 * **Three layers divided: Application Layer, Data Layer, Algorithm Layer**
+* **Template Design Pattern**
 # Improved and Creative Points:
 * **Evolution Algorithms** to implement the progress of convex optimization
 * **Provide an abstract Table Class to store a data set, users can simply construct a Table object to operate data.** 
