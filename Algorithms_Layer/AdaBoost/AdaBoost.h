@@ -4,12 +4,10 @@
 #include<queue>
 #include<vector>
 #include<cmath>
-#include "Boosting_Tree.h"
 #include "Sign.h"
-#include "Base.h"
 using namespace std;
 template<class classifier,class table>
-class AdaBoost:protected Loader<classifier>{
+class AdaBoost{
 private:
     vector<double> weight;
     queue<classifier> G;
