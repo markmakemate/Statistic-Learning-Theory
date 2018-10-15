@@ -16,7 +16,7 @@
 * **Create a DLL so that Python can import**
 * **Extensionability**: Parallel/Distributed Calculation
 * **Database system supported**: Key-Value, relation DB, distributed DB
-* **Implement Linear Algebra(Table, Raw, Column)Class in C++**
+* **Implement Linear Algebra, Table(Raw, Column)Class in C++**
 * **Three layers divided: Application Layer, Data Layer, Algorithm Layer**
 * **Template Design Pattern**
 # Improved and Creative Points:
@@ -140,6 +140,9 @@ Input format: map<prop_type,value_type><br/>
 * Using Particle Swarm Optimization for SVM
 * Using Simulated Annealing Algorithm for SVM
 * Heuristic Algorithms: *subclass* of SVM, implements the *interfaces* of SVM
+**Tip:**<br/>
+1. Kernal function matrix must be the parameter of SVM constructor 
+2. Kernal function matrix must be a Matrix object. 
 
 ## 5. AdaBoost
 * **Template Design Pattern**
