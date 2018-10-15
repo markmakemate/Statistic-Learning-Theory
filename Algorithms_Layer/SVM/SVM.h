@@ -1,7 +1,6 @@
 #ifndef SVM_H
 #define SVM_H
 #include<iostream>
-#include "../lib/DataProcessors.h"
 #include "../lib/Linear_Algebra.h"
 using namespace std;
 //SVM class
