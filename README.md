@@ -61,28 +61,12 @@ Table represents a data set in an abstract way<br/>
 Two kinds Table: raw-oriented Table, column-oriented Table(transposition of raw-oriented Table)<br/>
 Two kinds of units: Raw, Column<br/>
 **Template design pattern**<br/>
-### (1) **Raw-Oriented Table**
-Raw-Oriented Table is Table's subclass whose storage units are samples;<br/>
-Class name: Table_Raw<br/>
-<br/>
-*Some methods are implemented to operate a Table_Raw object:*<br/>
+*Some interfaces and methods are implemented to operate a Table object:*<br/>
 *a. Constructor: initialize a Table_Raw object(Override it which can load a input data set)*<br/>
 *b. build: build a Table_Raw object(Input format: map<index,Raw>)*<br/>
 *c. push: insert a Raw objec*t<br/>
 *d. pop: delete a Raw unit*<br/>
 *e. Override []: return a Raw object for a fixed index of sample*<br/>
-*f. dimension: return the dimension of each sample*<br/>
-*g. num: return the number of samples*<br/>
-### (2) **Column-Oriented Table(transposition of Raw-Oriented Table)**
-Column-Oriented Table is Table's subclass whose storage units are characters instead of samples;<br/>
-Class name: Table_Column<br/>
-<br/>
-*Some methods are to operate a Table_Column object:*<br/>
-*a. Constructor: initialize a Table_Column object(Override it which can load a input data set)*<br/>
-*b. build: build a Table_Column object(Input format: map<index,Column>)*<br/>
-*c. push: insert a Column object*<br/>
-*d. pop: delete a Column unit*<br/>
-*e. Override []: return a Column object for a fixed character*<br/>
 *f. dimension: return the dimension of each sample*<br/>
 *g. num: return the number of samples*<br/>
 *h. Gini: return Gini index of a fixed character*<br/>
@@ -91,22 +75,9 @@ Class name: Table_Column<br/>
 *k. Info_Gain: return all information gain of two fixed characters*<br/>
 *l. QuickSort: Sort the Table_Column object's samples' position for a given character as Quick Sort Algorithm*<br/>
 *m. Partition: Partition method for Quick sort*<br/>
-### (3) **Table**
-Table is an abstract container to store a data set;<br/>
-Table provides interfaces implemented in Table_Raw and Table_Column respectedly.<br/>
-User only construct a Table object then call API. Program will automatically decide which Table will be built<br/>
-### (4) **Raw**
-Raw is an abstract container to store a sample<br/>
-Input format: map<prop_type,value_type><br/>
-<br/>
-*Methods:*<br/>
-*a. build: build a Raw object with tag sample_index*<br/>
-### (5) **Column**
-Column is an abstract container to store all values of samples with one character<br/>
-Input format: map<prop_type,value_type><br/>
-*Methods:*<br/>
-*build:  build a Column object with tag prop_type*<br/>
-# 2. Collections:
+**Table is an abstract container to store a data set**;<br/>
+**Table provides interfaces implemented in Table_Raw and Table_Column respectedly.**<br/>
+**User only construct a Table object then call API. Program will automatically decide which Table will be built**<br/>
 
 # AI Algorithms:
 ## 1. kNN Algorithm
