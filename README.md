@@ -1,8 +1,8 @@
 # Statistic-Learning-Theory
 ## This project will integrates AI algorithms, Calculating Platforms and Application
 * Algorithm Layer in C++: Providing Algorithms and data access. 
-* Bussiness Logic Layer in Java: Providing interfaces to application layer and calculating resources. 
-* Application Layer in Python: Providing a simple interaction window for users. Users can customize it based on the API provided by Bussiness Logi Layer 
+* Bussiness Logic Layer in Java: Providing interfaces and calculating resources to application layer. 
+* Application Layer in Python: Providing a simple interaction window for users. Users can customize it based on the API provided by Bussiness Logic Layer 
 * Platforms: Windows, Linux
 * Compile Environment: Ubuntu 16.04 LTS 64-bit
 # Objectives: 
