@@ -1,22 +1,20 @@
 # Statistic-Learning-Theory
-## This project will integrates AI algorithms, Big Data platform and application
-* AI Algorithms: C++
-* Big Data platform: Java
-* Application Layer: Python
-* Platform: Windows, Linux
+## This project will integrates AI algorithms, Calculating Platforms and Application
+* Algorithm Layer in C++: Providing Algorithms and data access. 
+* Bussiness Logic Layer in Java: Providing interfaces to application layer and calculating resources. 
+* Application Layer in Python: Providing a simple interaction window for users. Users can customize it based on the API provided by Bussiness Logi Layer 
+* Platforms: Windows, Linux
 * Compile Environment: Ubuntu 16.04 LTS 64-bit
 # Objectives: 
-* Create an effective Artificial Intelligence application system for most conditions
-* Framework is as simple as possible
-* Extensionability should be satisfied
-* **Feature enginneering and data preprocess are not included.**
+* **Providing a effective Data Mining system for most applications**
+* **Coupling Algorithms, Calculating Resource and Application by a Light Framework. Meanwhile, the performance of Algorithms should be improved as good as possible.**
+* **Extensionability should be satisfied**
 # Features:
 * **Implementing algorithms without any Third-party Library, only C++ STL imported**
 * **Some Algorithms optimized for better performance**
-* **Create a DLL so that Python can import**
-* **Extensionability**: Parallel/Distributed Calculation
-* **Database system supported**: Key-Value, relation DB, distributed DB
-* **Implement Linear Algebra, Table(Raw, Column)Class in C++**
+* **Create a DLL so that Python and Java can import**
+* **Extensionability**
+* **Complete Linear Algebra, Table(Raw, Column)Class in C++**
 * **Three layers divided: Application Layer, Data Layer, Algorithm Layer**
 * **Template Design Pattern**
 # Improved and Creative Points:
@@ -25,8 +23,8 @@
 * **Iterator** is provided for Table, Collection, DataSet and DataLoader;
 # References:
 1. *Statistic Learning Method*, Hang Li, Tsinghua University Press<br/>
-2. *Pattern Classification*, Richard Duda<br/>
-3. *Introduction to data mining*, <br/>
+2. *Pattern Classification*, Richard Duda, China Machine Press<br/>
+3. *Introduction to data mining*, Pan-Ning Tan&Michael Steinbach, China Machine Press.<br/>
 4. *C++ Refrence: http://www.cplusplus.com/reference/*<br/>
 5. *C++ Primer Plus*,Stephen Prata,2015<br/>
 6. *The Annotated STL Sources(using SGI STL)*,Jie Hou, HUST Press.<br/>
