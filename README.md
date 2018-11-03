@@ -1,4 +1,4 @@
-# Statistic-Learning-Theory
+# Data Mining System
 ## This project will integrates AI algorithms, Calculating Platforms and Application
 * Algorithm Layer in C++: Providing Algorithms and data access. 
 * Bussiness Logic Layer in Java: Providing interfaces and calculating resources to application layer. 
