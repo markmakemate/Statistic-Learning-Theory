@@ -7,7 +7,7 @@
 * Compile Environment: Ubuntu 16.04 LTS 64-bit
 * Group Members: 1
 # Objectives: 
-* **Providing a effective Data Mining system for most applications**
+* **Providing an effective Data Mining system for most applications**
 * **Coupling Algorithms, Calculating Resource and Application by a Light Framework. Meanwhile, the performance of Algorithms should be improved as good as possible.**
 * **Extensionability should be satisfied**
 # Features:
