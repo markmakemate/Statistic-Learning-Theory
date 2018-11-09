@@ -7,7 +7,7 @@
 * Compile Environment: Ubuntu 16.04 LTS 64-bit
 * Group Members: 1
 # Final Objectives: 
-* **Providing an effective, extensionable, customizable and light Data Mining Framework for most applications in any platform. For example, we can transplant this framework on mobile terminal.**
+* **Providing an effective, extensionable, customizable and light Data Mining Framework for most applications in any platform. For example, we can transplant this framework on mobile terminal then working on some tasks like text mining.**
 * **Coupling Algorithms, Calculating Resource and Application by a Light Framework. Meanwhile, the performance of Algorithms should be improved as good as possible.**
 * **Extensionability should be satisfied**
 # Current Objective:
