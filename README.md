@@ -1,15 +1,17 @@
 # Data Mining Applicaion  System
 ## This project will integrates AI algorithms, Calculating Platforms and Application
 * Algorithm Layer in C++: Providing Algorithms and data access. 
-* Bussiness Logic Layer in Java: Providing interfaces and calculating resources to application layer. 
-* Application Layer in Python: Providing a simple interaction window for users. Users can customize it based on the API provided by Bussiness Logic Layer 
-* Platforms: Windows, Linux
+* Bussiness Logic Layer in Java: Providing interfaces and calculating resources to application layer（JNI）. 
+* Application Layer in Python: Providing a simple interaction window for users(Mainly for data visualization). Users can customize it based on the API provided by Bussiness Logic Layer in any programming language. 
+* Platforms: Windows, Linux， Android
 * Compile Environment: Ubuntu 16.04 LTS 64-bit
 * Group Members: 1
-# Objectives: 
-* **Providing an effective, extensionable and light Data Mining Framework for most applications**
+# Final Objectives: 
+* **Providing an effective, extensionable, customizable and light Data Mining Framework for most applications in any platform. For example, we can transplant this framework on mobile terminal.**
 * **Coupling Algorithms, Calculating Resource and Application by a Light Framework. Meanwhile, the performance of Algorithms should be improved as good as possible.**
 * **Extensionability should be satisfied**
+# Current Objective:
+* **Completing Algorithm layer**
 # Features:
 * **Implementing algorithms without any Third-party Library, only C++ STL imported**
 * **Some Algorithms optimized for better performance**
