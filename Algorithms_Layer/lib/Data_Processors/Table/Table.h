@@ -11,22 +11,27 @@ using namespace std;
 //pop: delete a fixed sample
 //dimension: a Table object's dimension
 //num: number of samples of a Table's object
-template<class sample_index,class prop_type,class value_type>
+template<class value_type>
 class Table{
-    typedef Raw<sample_index,value_type> raw;
-    typedef Column<prop_type,value_type> column;
-    typedef map<prop_type,raw> table_column;
-    typedef map<sample_index,column> table_raw;
 public:
-    Table();
-    virtual void build();
+    virtual void load();
     virtual void push();
     virtual void pop();
+    virtual void clear();
     virtual int dim();
     virtual int num();
-    virtual raw operator[](const sample_index& position);
-    virtual column operator[](const prop_type& position);
+    virtual void operator[](const int& index);
+    virtual void operator()(const int& raw,const int& col);
+    virtual void operator + (void* B);
+    virtual void operator - (void* B);
+    virtual void split();
+    virtual int label();
+    virtual void refix();
+    virtual void QuickSort();
+    virtual void gini();
+    virtual void entropy();
+    virtual void info_gain();
+    virtual void mean();
+    virtual void var();
 };
-
 #include "Table_Raw.h"
-#include "Table_Column.h"

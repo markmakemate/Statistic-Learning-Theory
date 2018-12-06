@@ -3,139 +3,175 @@
 #include<queue>
 #include<cmath>
 #include<vector>
+#include "BiNode.h"
+#include "../lib/Sign.h"
+#define INF 1.78e+307
 //This is the code implements of kd tree
 //kd tree is applied to search k-nearest neighbor points in an efficient way
 using namespace std;
-template<class Elemtype>
-struct BSTreeNode {
-	Elemtype data;
-	BSTreeNode<Elemtype>* left;
-	BSTreeNode<Elemtype>* right;
-	BSTreeNode<Elemtype>* father;
-	int depth;
-	BSTreeNode(Elemtype x,int d) :data(x), depth(d),left(NULL), right(NULL){}
-};   //Declaration  of Binary search tree node
-
-class kd_Tree {
-	typedef BSTreeNode<vector<double> >* node;
-private:
-	int Num_of_Samples;
-	int Dimension;
-public:
-	kd_Tree();
-	kd_Tree(int N, int k);
-	node Generator(vector<double>* Input,int spliting_point=0,int depth=0,node T=NULL);
-	vector<double>* QuickSort(vector<double>* Input, int spliting_point,int begin=0,int end=1);
-	int Partition(vector<double>* Input, int spliting_point, int begin = 0,int end=1);
-	vector<double> kd_Searching(node T, vector<double> searching_point);
-	vector<double>* Swap(vector<double>* Input, int p1, int p2);
-	node getLeaf(node T,vector<double> searching_point);
-};
-
-kd_Tree::kd_Tree(){
-	Num_of_Samples=0;
-	Dimension=0;
-}
-kd_Tree::kd_Tree(int N,int k){
-	Num_of_Samples=N;
-	Dimension=k;
-}
-
-BSTreeNode<vector<double> >* kd_Tree::Generator(vector<double>* Input, int spliting_point, int depth,BSTreeNode<vector<double> >* T) {
-	typedef BSTreeNode<vector<double> > node;
-	typedef vector<double>* Set;
-	Set* subsets = new Set[2];
-	*subsets = new vector<double>[Num_of_Samples / 2];
-	*(subsets + 1) = new vector<double>[Num_of_Samples / 2];
-	Input = QuickSort(Input, spliting_point,0,Num_of_Samples);
-	if (T == NULL) {
-		T =new node( *(Input + Num_of_Samples / 2 - 1),depth);
-	}
-	else {
-		for (int i = 0; i < Num_of_Samples / 2; i++) {
-			*(subsets + i)[0] = *(Input + i);
-			*(subsets + i)[1] = *(Input + i + Num_of_Samples / 2);
+template<class table>
+double distance(table a,table b,int lp){
+	table c;
+	int dim;
+	double result=INF;
+	if(a.dim()==b.dim()){
+		c=a-b;
+		dim=a.dim();
+		for(int i=0;i<dim;i++){
+			result+=abs(pow((a(0,i)-b(0,i),lp)));
 		}
-		T->left->father = T;
-		T->right->father = T;
-		spliting_point = depth % Dimension;
-		depth++;
-		T->left = Generator(subsets[0], spliting_point, depth,T->left);
-		T->right = Generator(subsets[1], spliting_point, depth,T->right);
+		result=pow(result,1/lp);
 	}
-	T->father = NULL;
-	return T;
-}
-vector<double>* kd_Tree::QuickSort(vector<double>* Input, int spliting_point,int begin,int end) {
-	int p = Partition(Input, spliting_point,begin,end);
-	if (begin < end) {
-		Input = QuickSort(Input, spliting_point, begin, p - 1);
-		Input = QuickSort(Input, spliting_point, p + 1, end);
+	else{
+		throw "dimension error";
 	}
-	return Input;
-}
-int kd_Tree::Partition(vector<double>* Input, int spliting_point, int begin, int end) {
-	vector<double> x = *(Input + end);
-	int p = begin - 1;
-	for (int i = begin; i < end; i++) {
-		if ((*(Input + i)).at(spliting_point) < x.at(spliting_point)) {
-			p++;
-			Input=Swap(Input, i, p);
-		}
-	}
-	p++;
-	Swap(Input, p, end);
-	return p;
-}
-vector<double>* kd_Tree::Swap(vector<double>* Input, int p1, int p2) {
-	vector<double> Temp;
-	Temp = *(Input + p1);
-	*(Input + p1) = *(Input + p2);
-	*(Input + p2) = Temp;
-	return Input;
-}
-vector<double> kd_Tree::kd_Searching(BSTreeNode<vector<double> >* Tree, vector<double> searching_point) {
-	typedef BSTreeNode<vector<double> >* node;
-	typedef vector<double> Set;
-	vector<double>::iterator it;
-	int depth_1,depth_2,point_1,point_2;
-	double distance_1,distance_2;
-	node leaf;
-	vector<double> result;
-	leaf=getLeaf(Tree,searching_point);
-	while(leaf!=Tree){
-		it=(leaf->data).begin();
-		depth_1=leaf->depth;
-		point_1=depth_1%Dimension;
-		depth_2=leaf->father->depth;
-		point_2=depth_2%Dimension;
-		distance_1=abs(*(it+point_1)-searching_point.at(point_1));
-		distance_2=abs(*(it+point_2)-searching_point.at(point_2));
-		if(distance_1>distance_2){
-			leaf=leaf->father;
-		}
-		else{
-			result=kd_Searching(leaf->father,searching_point);
-		}
-	}
-	result=leaf->data;
 	return result;
+
 }
-BSTreeNode<vector<double> >* kd_Tree::getLeaf(BSTreeNode<vector<double> >* Tree,vector<double> searching_point){
-	typedef BSTreeNode<vector<double> >* node;
-	int depth,point;
-	node leaf=Tree;
-	vector<double>::iterator it;
-	while(leaf!=NULL){
-		it=(leaf->data).begin();
-		depth=leaf->depth;
-		point=depth%Dimension;
-		if(*(it+point)<searching_point.at(point)){
-			leaf=leaf->left;
+template<class table>
+class kd_Tree {
+	typedef BiNode<table>* node;
+private:
+	table Data;   //Data Set
+	table spliting_point;   //split point
+	static node root;   //root of kd-tree
+	table nearest;   //nearest point
+	double nearest_distance //nearest distance
+	queue<table> nearests //nearest points
+public:
+    kd_Tree(){}
+	kd_Tree(table& Input);
+	void load(table& Input);
+	node training(node r=NULL,table* subtable=NULL,int depth=0);
+	void searching(node r=root,table& point);
+	int operator(queue<node> points);
+};
+template<class table>
+kd_Tree<table>::root=NULL;
+template<class table>
+kd_Tree::kd_Tree(table& Input){
+	Data=Input;
+	nearest_distance=INF;
+}
+template<class table>
+void kd_Tree<table>::load(table& Input){
+	Data=Input;
+}
+
+//training a kd tree
+template<class table>
+BiNode<table>* kd_Tree<table>::training(BiNode<table>* r,table* subtable,int depth){
+	spliting_point.clear();
+	table* subspace;
+	if(r==NULL&& subtable==NULL){
+		int dim=Data.dim();
+	    int N=Data.num();
+		Data.QuickSort(depth%(dim-1));    //Sort Data based on depth mod (dim-1) attributes
+		spliting_point.push(Data(N/2,depth%(dim-1)));   //create the split point
+		r=new BiNode<table>(Data[N/2],spliting_point,depth);
+		r->left->father=r;   //set father node of r->left
+		r->right->father=r;  //set father node of r->right
+		subspace=Data.split(N/2,depth%(dim-1));   //split Data into two tables based on Data(N/2, (depth mode dim-1))
+		r->right=training(r->right,&(subspace[1]),depth++);   //recursively training r->right
+		r->left=training(r->left,&(subspace[0]),depth++);   //recursively training r->left
+	}
+	//The progress is as above, however, Data is replaced by subtable
+	//cirumstance of subtable!=NULL
+	else if(r==NULL&&subtable!=NULL){
+		subtable->QuickSort(depth%(dim-1));
+		int dim=subtable->dim();
+		int N=subtable->num();
+		spliting_point.push((*subtable)(N/2,depth%(dim-1)));
+		r=new BiNode<table>((*subtable)[N/2],spliting_point,depth);
+		r->left->father=r;
+		r->right->father=r;
+		subspace =subtable->split(N/2,depth%(dim-1));
+		r->left=training(r->left,subspace,depth++);
+		r->right=training(r->right,subspace+1,depth++);
+	}
+	else if(r!=NULL&&subtable==NULL){
+		BiNode<table>* p=r;
+		int dim=Data.dim();
+	    int N=Data.num();
+		while(p!=NULL){
+			Data.QuickSort(depth%(dim-1));
+			spliting_point.push(Data(N/2,depth%(dim-1)));
+			if(spliting_point(0,0)<(p->data)(0,0)){
+				p=p->left;
+			}
+			else{
+				p=p->right;
+			}
+			depth++;
+		}
+		p=new BiNode<table>(Data[N/2]spliting_point,depth);
+		p->left->father=p;
+		p->right->father=p;
+		subspace=Data.split(N/2,depth%(dim-1));
+		p->left=training(p->left,subspace,depth++);
+		p->right=training(p->right,subspace+1,depth++);
+	}
+	else if(r!=NULL&& subtable!=NULL){
+		BiNode<table>* p=r;
+		int dim=subtable->dim();
+	    int N=subtable->num();
+		while(p!=NULL){
+			subtable->QuickSort(depth%(dim-1));
+			spliting_point.push((*subtable)(N/2,depth%(dim-1)));
+			if(spliting_point(0,0)<(p->data)(0,0)){
+				p=p->left;
+			}
+			else{
+				p=p->right;
+			}
+			depth++;
+		}
+		p=new BiNode<table>((*subtable)[N/2],spliting_point,depth);
+		p->left->father=p;
+		p->right->father=p;
+		subspace=subtable->split(N/2,depth%(dim-1));
+		p->left=training(p->left,subspace,depth++);
+		p->right=training(p->right,subspace+1,depth++);
+	}
+	return r;
+}
+
+//search in kd tree with a point
+template<class table>
+void kd_Tree<table>::searching(BiNode<table>* r,table& node){
+	BiNode<table>* p=r;
+	BiNode<table>* q=NULL;
+	BiNode<table>* t=NULL;
+	while(p!=NULL){
+		if(p->split_point(0,0)>node(0,p->depth%(node.dim()-1))){
+			p=p->left;
 		}
 		else{
-			leaf=leaf->right;
+			p=p->right;
 		}
 	}
-	return leaf;
+	p=p->father;
+	double d=distance(p->data,node);
+	if(d<nearest_distance){
+		nearest_distance=d;
+	}
+	q=p->father;
+	if(q->left==p&&q!=root){
+		t=q->right;
+		d=distance(t->data,node);
+		if(d<nearest_distance){
+			nearest_distance=d;
+			nearests.clear();
+			nearests.push(t->data);
+			searching(t,node);
+		}
+		else if(d==nearest_distance){
+			nearests.push(t->data);
+			searching(t,node);
+		}
+		else{
+			t=t->father;
+			searching(t,node);
+		}
+	}
 }

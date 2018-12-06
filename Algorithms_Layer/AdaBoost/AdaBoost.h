@@ -4,15 +4,15 @@
 #include<queue>
 #include<vector>
 #include<cmath>
-#include "Sign.h"
+#include "../lib/Sign.h"
 using namespace std;
 template<class classifier,class table>
 class AdaBoost{
 private:
     vector<double> weight;
-    queue<classifier> G;
+    static queue<classifier> G;
     classifier init_G;
-    queue<double> paramas;
+    static queue<double> paramas;
     double error;
     double norm;
     int step,label;
@@ -20,9 +20,9 @@ private:
     table Data;
 public:
     AdaBoost();
-    AdaBoost(const table& Input,int& label);
-    void load(const table& Input,int& label);
-    void initial_weight();
+    AdaBoost(table& Input,int& label);
+    void load(table& Input,int& label);
+    static void initial_weight();
     void update_weight();
     void update_parama();
     void update_norm();
@@ -34,13 +34,17 @@ public:
             final_classifier+=paramas.front()*G.front()(value);
             G.push_back(G.front());
             G.pop();
-            paramas.push_back(paramas.front());
+            paramas.push_back(G.front());
             paramas.pop();
         }
         return sign(final_classifier);
     }
     friend int Index_function(int value_1,int value_2);
 };
+template<class classifier,class table>
+AdaBoost<classifier,table>::G=queue<double>(0);
+template<class classifier,class table>
+AdaBoost<classifier,table>::paramas=queue<double>(0);
 template<class classifier,class table>
 AdaBoost::AdaBoost(){
     step=0;
@@ -59,11 +63,11 @@ void AdaBoost<classifier,table>::load(const table& Input,int& Label){
     label=Label;
 }
 template<class classifier,class table>
-void AdaBoost<classifier,table>::initial_weight(){
+static void AdaBoost<classifier,table>::initial_weight(){
     int N=Data.num();
     vector<double> candidate(N,1/N);
     weight.swap(candidate);
-    delete candidate;
+    candidate.clear();
 }
 template<class classifier,class table>
 void AdaBoost<classifier,table>::update_weight(){
@@ -101,7 +105,7 @@ void AdaBoost<classifier,table>::forward(double valve){
     initial_weight();
     while(error>valve){
         init_G.load(Table);
-        init_G.setWeight(this->weight);
+        init_G.setWeight(weight);
         init_G.training();
         G.push_back(init_G);
         update_error();
